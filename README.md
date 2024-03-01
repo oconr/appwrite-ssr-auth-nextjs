@@ -1,7 +1,7 @@
 # Important links
 
-- Written tutorial
-- Video tutorial
+- [Written tutorial](https://oconr.co.uk/blog/appwrite-ssr-auth-nextjs)
+- [Video tutorial](https://www.youtube.com/watch?v=Ijn-0PW3DCo)
 
 ---
 
