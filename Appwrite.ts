@@ -1,5 +1,4 @@
-import { parseCookie } from "next/dist/compiled/@edge-runtime/cookies";
-import { ReadonlyHeaders } from "next/dist/server/web/spec-extension/adapters/headers";
+import { ReadonlyRequestCookies } from "next/dist/server/web/spec-extension/adapters/request-cookies";
 import { Account, Client } from "node-appwrite";
 
 export const SESSION_COOKIE = "appwrite-session";
@@ -33,7 +32,7 @@ export function createAdminClient() {
   };
 }
 
-export function createSessionClient(headers: ReadonlyHeaders) {
+export function createSessionClient(cookies: ReadonlyRequestCookies) {
   const endpoint = process.env.APPWRITE_ENDPOINT;
   const projectId = process.env.APPWRITE_PROJECT_ID;
 
@@ -47,7 +46,6 @@ export function createSessionClient(headers: ReadonlyHeaders) {
 
   const client = new Client().setEndpoint(endpoint).setProject(projectId);
 
-  const cookies = parseCookie(headers.get("cookie") ?? "");
   const session = cookies.get(SESSION_COOKIE);
 
   if (session) {

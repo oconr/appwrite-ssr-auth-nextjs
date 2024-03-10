@@ -1,12 +1,12 @@
 import { SESSION_COOKIE, createSessionClient } from "@/Appwrite";
-import { cookies, headers } from "next/headers";
+import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import FormButton from "./login/FormButton";
 
 async function logout() {
   "use server";
 
-  const { account } = createSessionClient(headers());
+  const { account } = createSessionClient(cookies());
 
   cookies().delete(SESSION_COOKIE);
   await account.deleteSession("current");
@@ -16,7 +16,7 @@ async function logout() {
 
 export default async function Home() {
   try {
-    const { account } = createSessionClient(headers());
+    const { account } = createSessionClient(cookies());
     const user = await account.get();
 
     return (

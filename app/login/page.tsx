@@ -74,7 +74,7 @@ export default async function LoginPage() {
       <form className="w-96 flex flex-col gap-2" action={signInWithEmail}>
         <h1 className="text-4xl font-semibold mb-3">Login</h1>
         <FormInput
-          type="text"
+          type="email"
           name="email"
           placeholder="Email address"
           autoComplete="off"
@@ -86,7 +86,7 @@ export default async function LoginPage() {
       <form className="w-96 flex flex-col gap-2" action={signUpWithEmail}>
         <h1 className="text-4xl font-semibold mb-3">Sign up</h1>
         <FormInput
-          type="text"
+          type="email"
           name="email"
           placeholder="Email address"
           autoComplete="off"
